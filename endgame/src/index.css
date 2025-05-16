@@ -54,3 +54,17 @@ header > p {
   color: #535252;
   margin: 5px;
 }
+
+.languages{
+  display:flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 20px 0;
+  justify-content: center;
+  max-width: 350px;
+}
+
+.language-container{
+  padding:4.5px;
+  border-radius: 3px;
+}
