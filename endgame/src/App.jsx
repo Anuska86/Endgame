@@ -23,11 +23,29 @@ export default function AssemblyEndgame() {
     </span>
   ));
 
+  const alphabet = "abcdefghijklmnopqrstuvwxyz";
+
+  const keyboard = (
+    <div className="keyboard">
+      {alphabet.split("").map((letter) => (
+        <button
+          key={letter}
+          className="keyboard-button"
+          type="button"
+          tabIndex={0}
+          aria-label={letter}
+        >
+          {letter.toUpperCase()}
+        </button>
+      ))}
+    </div>
+  );
+
   return (
     <main>
       <header>
         <h1>Assembly: Endgame</h1>
-        <p>
+        <p className="instructions">
           Guess the word in under 8 attempts to keep the programming world safe
           from Assembly!
         </p>
@@ -38,6 +56,8 @@ export default function AssemblyEndgame() {
       </section>
       <section className="languages">{languageElements}</section>
       <section className="word-display">{letterSpans}</section>
+      <section className="keyboard">{keyboard}</section>
+      <button className="new-game">New Game</button>
     </main>
   );
 }

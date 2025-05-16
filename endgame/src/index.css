@@ -10,8 +10,9 @@ body {
   padding: 20px;
   height: 100vh;
   display: flex;
-  justify-content: center;
-}
+  justify-content: center;}
+  
+ 
 
 header {
   text-align: center;
@@ -29,6 +30,15 @@ header > p {
   color: #b6b3b3;
 }
 
+.instructions{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: 0 auto;
+}
+
+
 .game-status {
   font-size: 1.25rem;
   font-weight: 500;
@@ -40,6 +50,7 @@ header > p {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin: 10px;
 }
 
 .game-status > h2 {
@@ -62,12 +73,13 @@ header > p {
   margin: 20px 0;
   justify-content: center;
   max-width: 350px;
-  margin-bottom: 35px;
+  margin: 20px auto 35px auto;
 }
 
 .language-container {
   padding: 4.5px;
   border-radius: 3px;
+  justify-content: center;
 }
 
 .letter-span {
@@ -88,4 +100,35 @@ header > p {
   justify-content: center;
   align-items: center;
   gap: 16px;
+  margin-bottom: 25px;
+}
+
+.keyboard {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  max-width: 450px;
+}
+
+.keyboard > button {
+  height: 35px;
+  width: 35px;
+  background-color: #fcba29;
+  border: 1px solid #d7d7d7;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+button.new-game {
+  background-color: #11b5e5;
+  border: 1px solid #d7d7d7;
+  border-radius: 4px;
+  width: 225px;
+  height: 40px;
+  padding: 6px 12px;
+  display: block;
+  margin-inline: auto;
+  cursor: pointer;
+  margin-top: 20px;
 }
