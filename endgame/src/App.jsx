@@ -5,7 +5,19 @@ import { clsx } from "clsx";
 export default function AssemblyEndgame() {
   const [currentWord, setCurrentWord] = React.useState("react");
   const [chosenLetters, setChosenLetters] = React.useState([]);
-  console.log(chosenLetters);
+
+  const alphabet = "abcdefghijklmnopqrstuvwxyz";
+
+  const wrongGuessCount = chosenLetters.filter(
+    (letter) => !currentWord.includes(letter)
+  ).length;
+  const maxWrongGuesses = 8;
+  const isGameOver = wrongGuessCount >= maxWrongGuesses;
+  const isGameWon = currentWord
+    .split("")
+    .every((letter) => chosenLetters.includes(letter));
+
+  console.log(wrongGuessCount);
 
   const languageElements = languages.map((language) => (
     <div
@@ -20,15 +32,12 @@ export default function AssemblyEndgame() {
     </div>
   ));
 
-
   //Display the letters of the current word
   const letterSpans = currentWord.split("").map((letter, index) => (
     <span key={index} className="letter-span">
       {chosenLetters.includes(letter) ? letter : " "}
     </span>
   ));
-
-  const alphabet = "abcdefghijklmnopqrstuvwxyz";
 
   const handleLetterClick = (letter) => {
     if (!chosenLetters.includes(letter)) {
