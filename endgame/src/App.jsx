@@ -3,6 +3,8 @@ import { languages } from "./languajes";
 
 export default function AssemblyEndgame() {
   const [currentWord, setCurrentWord] = React.useState("react");
+  const [chosenLetters, setChosenLetters] = React.useState([]);
+  console.log(chosenLetters)
 
   const languageElements = languages.map((language) => (
     <div
@@ -25,6 +27,12 @@ export default function AssemblyEndgame() {
 
   const alphabet = "abcdefghijklmnopqrstuvwxyz";
 
+  const handleLetterClick = (letter) => {
+    if (!chosenLetters.includes(letter)) {
+      setChosenLetters((prev) => [...prev, letter]);
+    }
+  };
+
   const keyboard = (
     <div className="keyboard">
       {alphabet.split("").map((letter) => (
@@ -34,6 +42,8 @@ export default function AssemblyEndgame() {
           type="button"
           tabIndex={0}
           aria-label={letter}
+          onClick={() => handleLetterClick(letter)}
+          disabled={chosenLetters.includes(letter)}
         >
           {letter.toUpperCase()}
         </button>
