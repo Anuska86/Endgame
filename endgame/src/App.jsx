@@ -20,9 +20,11 @@ export default function AssemblyEndgame() {
     </div>
   ));
 
+
+  //Display the letters of the current word
   const letterSpans = currentWord.split("").map((letter, index) => (
     <span key={index} className="letter-span">
-      {letter}
+      {chosenLetters.includes(letter) ? letter : " "}
     </span>
   ));
 
