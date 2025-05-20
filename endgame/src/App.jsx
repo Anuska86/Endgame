@@ -19,18 +19,23 @@ export default function AssemblyEndgame() {
 
   console.log(wrongGuessCount);
 
-  const languageElements = languages.map((language) => (
-    <div
-      className="language-container"
-      key={language.name}
-      style={{
-        backgroundColor: language.backgroundColor,
-        color: language.color,
-      }}
-    >
-      {language.name}
-    </div>
-  ));
+  const languageElements = languages.map((language, index) => {
+    const isLanguageLost = index < wrongGuessCount;
+    const styles = {
+      backgroundColor: language.backgroundColor,
+      color: language.color,
+      position: "relative",
+    };
+    const className = clsx(
+      "language-container",
+      isLanguageLost && "language-container--lost"
+    );
+    return (
+      <div className={className} key={language.name} style={styles}>
+        {language.name}
+      </div>
+    );
+  });
 
   //Display the letters of the current word
   const letterSpans = currentWord.split("").map((letter, index) => (

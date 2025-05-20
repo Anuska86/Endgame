@@ -78,6 +78,23 @@ header > p {
   padding: 4.5px;
   border-radius: 3px;
   justify-content: center;
+  position: relative;
+  min-width: 60px;
+  min-height: 30px;
+}
+
+.language-container--lost::before {
+  content: "💀";
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  font-size: 0.85rem;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.7);
 }
 
 .letter-span {
@@ -91,6 +108,7 @@ header > p {
   height: 40px;
   width: 40px;
 }
+
 .word-display {
   display: flex;
   flex-direction: row;
