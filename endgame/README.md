@@ -17,3 +17,7 @@ npm create vite@latest
 cd endgame
 npm install
 npm run dev
+
+
+MORE: 
+npm install --save clsx

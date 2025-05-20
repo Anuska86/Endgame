@@ -1,10 +1,11 @@
 import React from "react";
 import { languages } from "./languajes";
+import { clsx } from "clsx";
 
 export default function AssemblyEndgame() {
   const [currentWord, setCurrentWord] = React.useState("react");
   const [chosenLetters, setChosenLetters] = React.useState([]);
-  console.log(chosenLetters)
+  console.log(chosenLetters);
 
   const languageElements = languages.map((language) => (
     <div
@@ -35,19 +36,28 @@ export default function AssemblyEndgame() {
 
   const keyboard = (
     <div className="keyboard">
-      {alphabet.split("").map((letter) => (
-        <button
-          key={letter}
-          className="keyboard-button"
-          type="button"
-          tabIndex={0}
-          aria-label={letter}
-          onClick={() => handleLetterClick(letter)}
-          disabled={chosenLetters.includes(letter)}
-        >
-          {letter.toUpperCase()}
-        </button>
-      ))}
+      {alphabet.split("").map((letter) => {
+        const guessedLetter = chosenLetters.includes(letter);
+        const isLetterCorrect = guessedLetter && currentWord.includes(letter);
+        const isLetterWrong = guessedLetter && !currentWord.includes(letter);
+        const className = clsx("keyboard-button", {
+          "keyboard-button--correct": isLetterCorrect,
+          "keyboard-button--wrong": isLetterWrong,
+        });
+
+        return (
+          <button
+            key={letter}
+            className={className}
+            type="button"
+            tabIndex={0}
+            aria-label={letter}
+            onClick={() => handleLetterClick(letter)}
+          >
+            {letter.toUpperCase()}
+          </button>
+        );
+      })}
     </div>
   );
 
