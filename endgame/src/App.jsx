@@ -58,13 +58,21 @@ export default function AssemblyEndgame() {
     );
   });
 
-  //Display the letters of the current word
-  const letterSpans = currentWord.split("").map((letter, index) => (
-    <span key={index} className="letter-span">
-      {chosenLetters.includes(letter) ? letter : " "}
-    </span>
-  ));
-
+  //Display the letters of the current word and the missing letters
+  //If the game is lost, show the missing letters
+  //If the game is won, show the letters of the current word
+  const letterSpans = currentWord.split("").map((letter, index) => {
+    const isRevealed = chosenLetters.includes(letter) || isGameLost;
+    const letterClassName = clsx(
+      "letter-span",
+      !chosenLetters.includes(letter) && isGameLost && "letter-span--missing"
+    );
+    return (
+      <span key={index} className={letterClassName}>
+        {isRevealed ? letter : " "}
+      </span>
+    );
+  });
   //Handle the click event for the keyboard buttons
   const handleLetterClick = (letter) => {
     if (!chosenLetters.includes(letter)) {
@@ -134,9 +142,12 @@ export default function AssemblyEndgame() {
             <h2>
               You lose! 😢 Now Assembly is going to be your new best friend 😛{" "}
             </h2>
+            <p className="reveal-word">
+              The word was: <strong>{currentWord}</strong>
+            </p>
           </>
         )}
-        {lastLostLanguage && (
+        {!isGameLost && lastLostLanguage && (
           <div className="farewell" key={lastLostLanguage.name}>
             {getFarewellText(lastLostLanguage.name)}
           </div>
