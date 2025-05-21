@@ -75,9 +75,10 @@ export default function AssemblyEndgame() {
             className={className}
             type="button"
             tabIndex={0}
-            aria-label={letter}
+            aria-label={`Letter ${letter}`}
             onClick={() => handleLetterClick(letter)}
             disabled={isGameOver}
+            aria-disabled={chosenLetters.includes(letter)}
           >
             {letter.toUpperCase()}
           </button>
@@ -101,7 +102,7 @@ export default function AssemblyEndgame() {
           from Assembly!
         </p>
       </header>
-      <section className={gameStatusClass}>
+      <section aria-live="polite" role="status" className={gameStatusClass}>
         {isGameWon && (
           <>
             <h2>You win! 🎉 </h2>
@@ -119,6 +120,17 @@ export default function AssemblyEndgame() {
       </section>
       <section className="languages">{languageElements}</section>
       <section className="word-display">{letterSpans}</section>
+      <section className="sr-only" aria-live="polite" role="status">
+        <p>
+          Current word:
+          {currentWord
+            .split("")
+            .map((letter) =>
+              chosenLetters.includes(letter) ? letter + "." : "blank"
+            )
+            .join(" ")}
+        </p>
+      </section>
       <section className="keyboard">{keyboard}</section>
       {isGameOver && <button className="new-game">New Game</button>}
     </main>

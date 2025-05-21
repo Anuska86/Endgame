@@ -121,9 +121,9 @@ header > p {
   color: #fff;
   font-size: 1.25rem;
   padding: 2px 0;
-  background-color: #7A5EA7;
+  background-color: #7a5ea7;
   border-radius: 8px;
-  border:1px dashed #323232
+  border: 1px dashed #323232;
 }
 
 .letter-span {
@@ -192,4 +192,14 @@ button.new-game {
   margin-inline: auto;
   cursor: pointer;
   margin-top: 20px;
+}
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
 }
