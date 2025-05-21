@@ -77,6 +77,7 @@ export default function AssemblyEndgame() {
             tabIndex={0}
             aria-label={letter}
             onClick={() => handleLetterClick(letter)}
+            disabled={isGameOver}
           >
             {letter.toUpperCase()}
           </button>
