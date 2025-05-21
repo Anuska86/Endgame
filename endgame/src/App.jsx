@@ -22,6 +22,8 @@ export default function AssemblyEndgame() {
   const isGameOver = isGameWon || isGameLost;
 
   const lastChosenLetter = chosenLetters[chosenLetters.length - 1];
+  const lastGuessWasWrong =
+    lastChosenLetter && !currentWord.includes(lastChosenLetter);
 
   //Get the farewells for the languages that have been lost
   const lostFarewells = languages.slice(0, wrongGuessCount).map((language) => (
@@ -29,6 +31,12 @@ export default function AssemblyEndgame() {
       {getFarewellText(language.name)}
     </div>
   ));
+
+  //Get the farewells for the languages that are still alive
+  const lastLostLanguage =
+    lastGuessWasWrong && wrongGuessCount > 0
+      ? languages[wrongGuessCount - 1]
+      : null;
 
   //Display the languages that have been lost
   //and the ones that are still alive
@@ -128,7 +136,11 @@ export default function AssemblyEndgame() {
             </h2>
           </>
         )}
-        {lostFarewells}
+        {lastLostLanguage && (
+          <div className="farewell" key={lastLostLanguage.name}>
+            {getFarewellText(lastLostLanguage.name)}
+          </div>
+        )}
       </section>
       <section className="languages">{languageElements}</section>
       <section className="word-display">{letterSpans}</section>
