@@ -125,7 +125,7 @@ export default function AssemblyEndgame() {
   return (
     <main>
       {isGameWon && (
-        <Confetti width={window.innerWidth} height={window.innerHeight} numberOfPieces={1000} />
+        <Confetti width={window.innerWidth} height={window.innerHeight} numberOfPieces={800} />
       )}
       <header>
         <h1>Assembly: Endgame</h1>
