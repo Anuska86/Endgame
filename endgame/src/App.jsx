@@ -11,11 +11,12 @@ export default function AssemblyEndgame() {
   const wrongGuessCount = chosenLetters.filter(
     (letter) => !currentWord.includes(letter)
   ).length;
-  const maxWrongGuesses = 8;
-  const isGameOver = wrongGuessCount >= maxWrongGuesses;
+
   const isGameWon = currentWord
     .split("")
     .every((letter) => chosenLetters.includes(letter));
+  const isGameLost = wrongGuessCount >= languages.length;
+  const isGameOver = isGameWon || isGameLost;
 
   console.log(wrongGuessCount);
 
@@ -87,13 +88,22 @@ export default function AssemblyEndgame() {
         </p>
       </header>
       <section className="game-status">
-        <h2>You win! 🎉 </h2>
-        <p>Good game!</p>
+        {isGameWon && (
+          <>
+            <h2>You win! 🎉 </h2>
+            <p>Good game!</p>
+          </>
+        )}
+        {isGameLost && (
+          <>
+            <h2>You lose! 😢</h2>
+          </>
+        )}
       </section>
       <section className="languages">{languageElements}</section>
       <section className="word-display">{letterSpans}</section>
       <section className="keyboard">{keyboard}</section>
-      <button className="new-game">New Game</button>
+      {isGameOver && <button className="new-game">New Game</button>}
     </main>
   );
 }
