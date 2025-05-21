@@ -38,7 +38,7 @@ header > p {
 }
 
 .game-status {
-  display:flex;
+  display: flex;
   font-size: 1.25rem;
   font-weight: 500;
   color: #1a1a1a;
@@ -107,6 +107,20 @@ header > p {
   top: 0;
   left: 0;
   background-color: rgba(0, 0, 0, 0.7);
+  z-index: 1;
+}
+
+.farewell {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+  color: #fff;
+  font-size: 1.25rem;
+  padding: 2px 0;
 }
 
 .letter-span {

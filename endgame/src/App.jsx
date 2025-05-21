@@ -1,6 +1,8 @@
 import React from "react";
-import { languages } from "./languajes";
 import { clsx } from "clsx";
+import { languages } from "./languages";
+import { getFarewellText } from "./utils";
+
 
 export default function AssemblyEndgame() {
   const [currentWord, setCurrentWord] = React.useState("react");
@@ -15,7 +17,7 @@ export default function AssemblyEndgame() {
   const isGameWon = currentWord
     .split("")
     .every((letter) => chosenLetters.includes(letter));
-  const isGameLost = wrongGuessCount >= languages.length;
+  const isGameLost = wrongGuessCount >= languages.length - 1;
   const isGameOver = isGameWon || isGameLost;
 
   console.log(wrongGuessCount);
@@ -33,7 +35,13 @@ export default function AssemblyEndgame() {
     );
     return (
       <div className={className} key={language.name} style={styles}>
-        {language.name}
+        {isLanguageLost ? (
+          <div className="language-farewell">
+            <p>{getFarewellText(language.name)}</p>
+          </div>
+        ) : (
+          language.name
+        )}
       </div>
     );
   });
