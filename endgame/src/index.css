@@ -38,17 +38,26 @@ header > p {
 }
 
 .game-status {
+  display:flex;
   font-size: 1.25rem;
   font-weight: 500;
   color: #1a1a1a;
-  background-color: #b0db9c;
-  border: 2px solid #537d5d;
   padding: 0.75em 1.5em;
   border-radius: 8px;
   display: flex;
   flex-direction: column;
   align-items: center;
   margin: 10px;
+}
+
+.game-status--won {
+  background-color: #b0db9c;
+  border: 2px solid #537d5d;
+}
+
+.game-status--lost {
+  background-color: #fa9696;
+  border: 2px solid #d7d7d7;
 }
 
 .game-status > h2 {
@@ -75,12 +84,15 @@ header > p {
 }
 
 .language-container {
-  padding: 4.5px;
+  padding: 4.5px 12px;
   border-radius: 3px;
   justify-content: center;
   position: relative;
-  min-width: 60px;
+  min-width: unset;
   min-height: 30px;
+  width: fit-content;
+  box-sizing: border-box;
+  text-align: center;
 }
 
 .language-container--lost::before {
