@@ -21,3 +21,4 @@ npm run dev
 
 MORE: 
 npm install --save clsx
+npm install react-confetti

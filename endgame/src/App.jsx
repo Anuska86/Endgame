@@ -1,5 +1,6 @@
 import React from "react";
 import { clsx } from "clsx";
+import Confetti from "react-confetti";
 import { languages } from "./languages";
 import { getFarewellText, getRandomWord } from "./utils";
 
@@ -123,6 +124,9 @@ export default function AssemblyEndgame() {
 
   return (
     <main>
+      {isGameWon && (
+        <Confetti width={window.innerWidth} height={window.innerHeight} numberOfPieces={1000} />
+      )}
       <header>
         <h1>Assembly: Endgame</h1>
         <p className="instructions">
