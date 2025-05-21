@@ -1,32 +1,37 @@
 import React from "react";
 import { clsx } from "clsx";
 import { languages } from "./languages";
-import { getFarewellText } from "./utils";
+import { getFarewellText, getRandomWord } from "./utils";
 
 export default function AssemblyEndgame() {
-  const [currentWord, setCurrentWord] = React.useState("react");
+  const [currentWord, setCurrentWord] = React.useState(() => getRandomWord());
   const [chosenLetters, setChosenLetters] = React.useState([]);
 
+  //Static values
   const alphabet = "abcdefghijklmnopqrstuvwxyz";
 
+  //Derived values
   const wrongGuessCount = chosenLetters.filter(
     (letter) => !currentWord.includes(letter)
   ).length;
-
+  const numberOfGuesses = languages.length - 1;
   const isGameWon = currentWord
     .split("")
     .every((letter) => chosenLetters.includes(letter));
   const isGameLost = wrongGuessCount >= languages.length - 1;
   const isGameOver = isGameWon || isGameLost;
 
-  console.log(wrongGuessCount);
+  const lastChosenLetter = chosenLetters[chosenLetters.length - 1];
 
+  //Get the farewells for the languages that have been lost
   const lostFarewells = languages.slice(0, wrongGuessCount).map((language) => (
     <div className="farewell" key={language.name}>
       {getFarewellText(language.name)}
     </div>
   ));
 
+  //Display the languages that have been lost
+  //and the ones that are still alive
   const languageElements = languages.map((language, index) => {
     const isLanguageLost = index < wrongGuessCount;
     const styles = {
@@ -52,10 +57,17 @@ export default function AssemblyEndgame() {
     </span>
   ));
 
+  //Handle the click event for the keyboard buttons
   const handleLetterClick = (letter) => {
     if (!chosenLetters.includes(letter)) {
       setChosenLetters((prev) => [...prev, letter]);
     }
+  };
+
+  //Handle the click event for the new random word button
+  const handleNewRandomWord = () => {
+    setCurrentWord(getRandomWord());
+    setChosenLetters([]);
   };
 
   const keyboard = (
@@ -120,7 +132,17 @@ export default function AssemblyEndgame() {
       </section>
       <section className="languages">{languageElements}</section>
       <section className="word-display">{letterSpans}</section>
+
+      {/* Reader-only mode: No interactive elements here */}
       <section className="sr-only" aria-live="polite" role="status">
+        <p>
+          {currentWord.includes(
+            lastChosenLetter
+              ? `Correct! The letter ${lastChosenLetter} is in the word!`
+              : `Wrong! The letter ${lastChosenLetter} is not in the word!`
+          )}
+          You have {numberOfGuesses}guesses left.
+        </p>
         <p>
           Current word:
           {currentWord
@@ -132,7 +154,11 @@ export default function AssemblyEndgame() {
         </p>
       </section>
       <section className="keyboard">{keyboard}</section>
-      {isGameOver && <button className="new-game">New Game</button>}
+      {isGameOver && (
+        <button className="new-game" onClick={handleNewRandomWord}>
+          New Game
+        </button>
+      )}
     </main>
   );
 }
