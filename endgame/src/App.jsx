@@ -3,7 +3,6 @@ import { clsx } from "clsx";
 import { languages } from "./languages";
 import { getFarewellText } from "./utils";
 
-
 export default function AssemblyEndgame() {
   const [currentWord, setCurrentWord] = React.useState("react");
   const [chosenLetters, setChosenLetters] = React.useState([]);
@@ -22,6 +21,12 @@ export default function AssemblyEndgame() {
 
   console.log(wrongGuessCount);
 
+  const lostFarewells = languages.slice(0, wrongGuessCount).map((language) => (
+    <div className="farewell" key={language.name}>
+      {getFarewellText(language.name)}
+    </div>
+  ));
+
   const languageElements = languages.map((language, index) => {
     const isLanguageLost = index < wrongGuessCount;
     const styles = {
@@ -35,13 +40,7 @@ export default function AssemblyEndgame() {
     );
     return (
       <div className={className} key={language.name} style={styles}>
-        {isLanguageLost ? (
-          <div className="language-farewell">
-            <p>{getFarewellText(language.name)}</p>
-          </div>
-        ) : (
-          language.name
-        )}
+        {!isLanguageLost && language.name}
       </div>
     );
   });
@@ -115,6 +114,7 @@ export default function AssemblyEndgame() {
             </h2>
           </>
         )}
+        {lostFarewells}
       </section>
       <section className="languages">{languageElements}</section>
       <section className="word-display">{letterSpans}</section>
