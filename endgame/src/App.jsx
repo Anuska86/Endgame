@@ -62,6 +62,7 @@ export default function AssemblyEndgame() {
   //Display the letters of the current word and the missing letters
   //If the game is lost, show the missing letters
   //If the game is won, show the letters of the current word
+
   const letterSpans = currentWord.split("").map((letter, index) => {
     const isRevealed = chosenLetters.includes(letter) || isGameLost;
     const letterClassName = clsx(
@@ -126,76 +127,80 @@ export default function AssemblyEndgame() {
 
   return (
     <main>
-      {isGameWon && (
-        <Confetti
-          width={window.innerWidth}
-          height={window.innerHeight}
-          numberOfPieces={800}
-        />
-      )}
-      <header>
-        <h1>Assembly: Endgame</h1>
-        <p className="instructions">
-          Guess the word in under 8 attempts to keep the programming world safe
-          from Assembly! For every wrong letter, a programming language will be
-          sacrificed!😱{" "}
-        </p>
-      </header>
-      <section className="remaining-guesses">
-        <strong>Remaining guesses: {numberOfGuesses - wrongGuessCount}</strong>
-      </section>
-      <section aria-live="polite" role="status" className={gameStatusClass}>
+      <div className="main-container">
         {isGameWon && (
-          <>
-            <h2>You win! 🎉 </h2>
-            <p>Good game!</p>
-          </>
+          <Confetti
+            width={window.innerWidth}
+            height={window.innerHeight}
+            numberOfPieces={800}
+          />
         )}
-        {isGameLost && (
-          <>
-            <h2>
-              You lose! 😢 Now Assembly is going to be your new best friend 😛{" "}
-            </h2>
-            <p className="reveal-word">
-              The word was: <strong>{currentWord}</strong>
-            </p>
-          </>
-        )}
-        {!isGameLost && lastLostLanguage && (
-          <div className="farewell" key={lastLostLanguage.name}>
-            {getFarewellText(lastLostLanguage.name)}
-          </div>
-        )}
-      </section>
-      <section className="languages">{languageElements}</section>
-      <section className="word-display">{letterSpans}</section>
-
-      {/* Reader-only mode: No interactive elements here */}
-      <section className="sr-only" aria-live="polite" role="status">
-        <p>
-          {currentWord.includes(
-            lastChosenLetter
-              ? `Correct! The letter ${lastChosenLetter} is in the word!`
-              : `Wrong! The letter ${lastChosenLetter} is not in the word!`
+        <header>
+          <h1>Assembly: Endgame</h1>
+          <p className="instructions">
+            Guess the word in under 8 attempts to keep the programming world
+            safe from Assembly! For every wrong letter, a programming language
+            will be sacrificed!😱{" "}
+          </p>
+        </header>
+        <section className="remaining-guesses">
+          <strong>
+            Remaining guesses: {numberOfGuesses - wrongGuessCount}
+          </strong>
+        </section>
+        <section aria-live="polite" role="status" className={gameStatusClass}>
+          {isGameWon && (
+            <>
+              <h2>You win! 🎉 </h2>
+              <p>Good game!</p>
+            </>
           )}
-          You have {numberOfGuesses}guesses left.
-        </p>
-        <p>
-          Current word:
-          {currentWord
-            .split("")
-            .map((letter) =>
-              chosenLetters.includes(letter) ? letter + "." : "blank"
-            )
-            .join(" ")}
-        </p>
-      </section>
-      <section className="keyboard">{keyboard}</section>
-      {isGameOver && (
-        <button className="new-game" onClick={handleNewRandomWord}>
-          New Game
-        </button>
-      )}
+          {isGameLost && (
+            <>
+              <h2>
+                You lose! 😢 Now Assembly is going to be your new best friend 😛{" "}
+              </h2>
+              <p className="reveal-word">
+                The word was: <strong>{currentWord}</strong>
+              </p>
+            </>
+          )}
+          {!isGameLost && lastLostLanguage && (
+            <div className="farewell" key={lastLostLanguage.name}>
+              {getFarewellText(lastLostLanguage.name)}
+            </div>
+          )}
+        </section>
+        <section className="languages">{languageElements}</section>
+        <section className="word-display">{letterSpans}</section>
+
+        {/* Reader-only mode: No interactive elements here */}
+        <section className="sr-only" aria-live="polite" role="status">
+          <p>
+            {currentWord.includes(
+              lastChosenLetter
+                ? `Correct! The letter ${lastChosenLetter} is in the word!`
+                : `Wrong! The letter ${lastChosenLetter} is not in the word!`
+            )}
+            You have {numberOfGuesses}guesses left.
+          </p>
+          <p>
+            Current word:
+            {currentWord
+              .split("")
+              .map((letter) =>
+                chosenLetters.includes(letter) ? letter + "." : "blank"
+              )
+              .join(" ")}
+          </p>
+        </section>
+        <section className="keyboard">{keyboard}</section>
+        {isGameOver && (
+          <button className="new-game" onClick={handleNewRandomWord}>
+            New Game
+          </button>
+        )}
+      </div>
     </main>
   );
 }
