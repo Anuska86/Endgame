@@ -139,6 +139,9 @@ export default function AssemblyEndgame() {
           sacrificed!😱{" "}
         </p>
       </header>
+      <section className="remaining-guesses">
+        <strong>Remaining guesses: {numberOfGuesses - wrongGuessCount}</strong>
+      </section>
       <section aria-live="polite" role="status" className={gameStatusClass}>
         {isGameWon && (
           <>
