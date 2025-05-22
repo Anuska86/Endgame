@@ -125,13 +125,18 @@ export default function AssemblyEndgame() {
   return (
     <main>
       {isGameWon && (
-        <Confetti width={window.innerWidth} height={window.innerHeight} numberOfPieces={800} />
+        <Confetti
+          width={window.innerWidth}
+          height={window.innerHeight}
+          numberOfPieces={800}
+        />
       )}
       <header>
         <h1>Assembly: Endgame</h1>
         <p className="instructions">
           Guess the word in under 8 attempts to keep the programming world safe
-          from Assembly!
+          from Assembly! For every wrong letter, a programming language will be
+          sacrificed!😱{" "}
         </p>
       </header>
       <section aria-live="polite" role="status" className={gameStatusClass}>
