@@ -28,7 +28,7 @@ header {
 }
 
 header > h1 {
-  font-size: 1.50rem;
+  font-size: 1.5rem;
   font-weight: 500;
   color: #f9f4da;
 }
@@ -84,14 +84,14 @@ header > p {
 }
 
 .game-status > h2 {
-  font-size: 1.25rem;
+  font-size: 1.16rem;
   font-weight: 500;
-  margin: 5px;
+  margin: 28px 3px 5px 5px;
 }
 
 .game-status > p {
   font-size: 0.875rem;
-  margin: 5px;
+  margin: 4px 3px 5px 5px;
 }
 
 .languages {
@@ -196,7 +196,7 @@ header > p {
   justify-content: center;
   align-items: center;
   gap: 16px;
-  margin-bottom: 25px;
+  margin-bottom: 22px;
   color: #fff;
   min-height: 60px;
   width: 100%;
