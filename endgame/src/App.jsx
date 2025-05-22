@@ -133,6 +133,7 @@ export default function AssemblyEndgame() {
             width={window.innerWidth}
             height={window.innerHeight}
             numberOfPieces={800}
+            recycle={false}
           />
         )}
         <header>
@@ -152,7 +153,7 @@ export default function AssemblyEndgame() {
           {isGameWon && (
             <>
               <h2>You win! 🎉 </h2>
-              <p>Good game!</p>
+              <p>Good game! You save the world for Assembly, thank you! </p>
             </>
           )}
           {isGameLost && (

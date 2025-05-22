@@ -72,9 +72,9 @@ header > p {
 }
 
 .game-status--won {
-  background-color: #b0db9c;
-  border: 2px solid #537d5d;
-  color: #fff;
+  background-color: #4caf50;
+  border: 2px solid #388e3c;
+  color: #000000;
 }
 
 .game-status--lost {
@@ -87,6 +87,10 @@ header > p {
   font-size: 1.16rem;
   font-weight: 500;
   margin: 28px 3px 5px 5px;
+}
+
+.game-status--won > h2 {
+  margin-top: 10px;
 }
 
 .game-status > p {
@@ -247,8 +251,9 @@ header > p {
 }
 
 .keyboard > button.keyboard-button--correct {
-  background-color: #b0db9c;
-  border: 1px solid #537d5d;
+  background-color: #7bc47f;
+  border: 1px solid #388e3c;
+  color: #222;
 }
 
 .keyboard > button.keyboard-button--wrong {
