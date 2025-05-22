@@ -88,8 +88,8 @@ export default function AssemblyEndgame() {
   };
 
   const keyboard = (
-    <div className="keyboard">
-      {alphabet.split("").map((letter) => {
+    <div className={`keyboard${isGameLost ? " keyboard--stone" : ""}`}>
+      {alphabet.split("").map((letter, idx) => {
         const guessedLetter = chosenLetters.includes(letter);
         const isLetterCorrect = guessedLetter && currentWord.includes(letter);
         const isLetterWrong = guessedLetter && !currentWord.includes(letter);
@@ -97,6 +97,7 @@ export default function AssemblyEndgame() {
           "keyboard-button--correct": isLetterCorrect,
           "keyboard-button--wrong": isLetterWrong,
         });
+        const style = isGameLost ? { transitionDelay: `${idx * 0.04}s` } : {};
 
         return (
           <button
@@ -108,6 +109,7 @@ export default function AssemblyEndgame() {
             onClick={() => handleLetterClick(letter)}
             disabled={isGameOver}
             aria-disabled={chosenLetters.includes(letter)}
+            style={style}
           >
             {letter.toUpperCase()}
           </button>

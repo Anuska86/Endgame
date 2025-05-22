@@ -176,9 +176,9 @@ header > p {
   padding: 0.75em 1.5em;
   border-radius: 8px;
   color: #b6b3b3;
-   background-color: #2c2c2c;
+  background-color: #2c2c2c;
   border: 2px solid #fcba29;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
 
 .keyboard {
@@ -240,4 +240,68 @@ button.new-game {
   overflow: hidden;
   clip: rect(0, 0, 0, 0);
   border: 0;
+}
+
+/* Stone Theme */
+.keyboard--stone > button {
+  position: relative;
+  background:
+    /* Large, rough spots */ repeating-radial-gradient(
+      circle at 20% 30%,
+      #a0a0a0 0px,
+      #b0b0b0 8px,
+      transparent 12px
+    ),
+    repeating-radial-gradient(
+      circle at 70% 60%,
+      #888 0px,
+      #b0b0b0 10px,
+      transparent 16px
+    ),
+    /* Diagonal streaks */
+      repeating-linear-gradient(
+        120deg,
+        #b0b0b0 0px,
+        #b0b0b0 6px,
+        #888 12px,
+        #b0b0b0 18px
+      ),
+    repeating-linear-gradient(
+      45deg,
+      #b0b0b0 0px,
+      #b0b0b0 4px,
+      #a0a0a0 8px,
+      #b0b0b0 12px
+    ),
+    /* Base stone gradient */ linear-gradient(120deg, #d1d1d1 0%, #888 100%);
+  color: #222;
+  border: 1.5px solid #888;
+  box-shadow: 0 3px 12px #888 inset, 0 1px 2px #222;
+  filter: grayscale(1) contrast(1.7) brightness(0.7);
+  transition: background 0.6s cubic-bezier(0.4, 2, 0.6, 1),
+    color 0.6s cubic-bezier(0.4, 2, 0.6, 1),
+    filter 0.6s cubic-bezier(0.4, 2, 0.6, 1);
+  overflow: hidden;
+}
+
+.keyboard--stone > button::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  border-radius: 3px;
+  opacity: 0.28;
+  background: repeating-linear-gradient(
+      0deg,
+      transparent,
+      rgba(0, 0, 0, 0.09) 1px,
+      transparent 3px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      rgba(0, 0, 0, 0.07) 1px,
+      transparent 2px
+    );
+  mix-blend-mode: multiply;
 }
