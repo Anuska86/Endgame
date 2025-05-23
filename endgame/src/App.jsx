@@ -160,10 +160,10 @@ export default function AssemblyEndgame() {
             <>
               <h2>
                 You lose! 😢 Now Assembly is going to be your new best friend 😛{" "}
+                <span className="reveal-word">
+                  The word was: <strong>{currentWord}</strong>
+                </span>
               </h2>
-              <p className="reveal-word">
-                The word was: <strong>{currentWord}</strong>
-              </p>
             </>
           )}
           {!isGameLost && lastLostLanguage && (

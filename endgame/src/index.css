@@ -352,3 +352,125 @@ button.new-game {
     );
   mix-blend-mode: multiply;
 }
+
+/*Responsive adjustments */
+
+/* Responsive adjustments for tablets and below */
+@media (max-width: 900px) {
+  html {
+    font-size: 22px;
+  }
+  body {
+    padding: 8px;
+  }
+  .main-container {
+    max-width: 100vw;
+    padding: 0 2vw;
+  }
+  .languages {
+    height: 250px;
+    margin: 24px auto 45px auto;
+    padding: 1em 0.5em;
+  }
+
+  .keyboard,
+  .remaining-guesses,
+  .game-status {
+    width: 100%;
+    min-width: unset;
+    max-width: 100vw;
+    font-size: 1.5rem;
+    padding: 1em 0.5em;
+  }
+
+  .language-container {
+    padding: 16px 32px;
+    font-size: 1em;
+    min-height: 56px;
+  }
+
+  .keyboard > button,
+  .letter-span {
+    width: 48px;
+    height: 48px;
+    font-size: 1.3em;
+    gap: 2px;
+  }
+
+  .farewell {
+    font-size: 1.2rem;
+    padding: 4px 0;
+  }
+}
+
+/* Responsive adjustments for mobile phones */
+@media (max-width: 500px) {
+  html {
+    font-size: 13px;
+  }
+  body {
+    padding: 1x;
+  }
+  .main-container {
+    max-width: 100vw;
+    padding: 0 1vw;
+  }
+
+  .game-status {
+    font-size: 1rem;
+    padding: 1em 0.5em;
+    margin: 4px 0;
+  }
+
+  .game-status > h2 {
+    text-align: center;
+    margin: 8px 0 5px 0;
+  }
+
+  .keyboard,
+  .remaining-guesses {
+    font-size: 1rem;
+    padding: 1em 0.5em;
+  }
+
+  .languages {
+    margin: 0.5em;
+    height: 10em;
+    font-size: 1rem;
+    padding: 1em 0.5em;
+  }
+
+  .language-container {
+    margin: 0.1em;
+    padding: 0.7em;
+    text-align: center;
+    min-height: 3em;
+    gap: 0.5em;
+  }
+
+  .keyboard > button,
+  .letter-span {
+    width: 2.2em;
+    height: 2.2em;
+    font-size: 1.1em;
+    padding: 0;
+  }
+
+  .farewell {
+    font-size: 1.1rem;
+    padding: 6px 0;
+  }
+  header > h1 {
+    font-size: 2.2rem;
+  }
+  header > p {
+    font-size: 1.3rem;
+  }
+  .word-display {
+    margin-bottom: 0.5rem;
+  }
+
+  .reveal-word {
+    display: inline;
+  }
+}
