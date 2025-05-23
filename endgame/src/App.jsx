@@ -7,6 +7,7 @@ import { getFarewellText, getRandomWord } from "./utils";
 export default function AssemblyEndgame() {
   const [currentWord, setCurrentWord] = React.useState(() => getRandomWord());
   const [chosenLetters, setChosenLetters] = React.useState([]);
+  const [showNewGameModal, setShowNewGameModal] = React.useState(false);
 
   //Static values
   const alphabet = "abcdefghijklmnopqrstuvwxyz";
