@@ -147,7 +147,7 @@ export default function AssemblyEndgame() {
         </header>
         <section className="remaining-guesses">
           <strong>
-            Remaining guesses: {numberOfGuesses - wrongGuessCount}
+            Remaining guesses: {numberOfGuesses - wrongGuessCount} :O
           </strong>
         </section>
         <section aria-live="polite" role="status" className={gameStatusClass}>
