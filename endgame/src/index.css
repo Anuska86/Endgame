@@ -277,6 +277,23 @@ button.new-game {
   cursor: pointer;
   margin-top: 20px;
 }
+
+.floating-button-mobiles > button.floating-new-game {
+  position: absolute;
+  margin-top: 50%;
+  margin-bottom: 50%;
+  background-color: #11b5e5;
+  border: 1px solid #d7d7d7;
+  border-radius: 4px;
+  width: 225px;
+  height: 40px;
+  padding: 6px 12px;
+  display: block;
+  margin-inline: auto;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
 .sr-only {
   position: absolute;
   width: 1px;
@@ -400,7 +417,7 @@ button.new-game {
     padding: 4px 0;
   }
 
-  button.floating-new-game {
+  button.new-game {
     display: none;
     position: fixed;
     right: 16px;
@@ -511,9 +528,8 @@ button.new-game {
     display: inline;
   }
 
-  button.floating-new-game {
+  button.new-game {
     display: none;
-    position: fixed;
     right: 16px;
     bottom: 16px;
     width: 48px;
@@ -528,6 +544,9 @@ button.new-game {
     align-items: center;
     justify-content: center;
     cursor: pointer;
+    position: absolute;
+    margin-top: 50%;
+    margin-bottom: 50%;
   }
   .new-game-modal {
     display: none;
@@ -634,9 +653,8 @@ button.new-game {
     display: inline;
   }
 
-  button.floating-new-game {
+  button.new-game {
     display: none;
-    position: fixed;
     right: 16px;
     bottom: 16px;
     width: 48px;
@@ -651,6 +669,9 @@ button.new-game {
     align-items: center;
     justify-content: center;
     cursor: pointer;
+    position: absolute;
+    margin-top: 50%;
+    margin-bottom: 50%;
   }
   .new-game-modal {
     display: none;
@@ -678,9 +699,8 @@ button.new-game {
 /* Floating button for SMALLER devices*/
 
 @media (max-width: 370px) {
-  button.floating-new-game {
+  button.new-game {
     display: none;
-    position: fixed;
     right: 16px;
     bottom: 16px;
     width: 48px;
@@ -695,6 +715,9 @@ button.new-game {
     align-items: center;
     justify-content: center;
     cursor: pointer;
+    position: absolute;
+    margin-top: 50%;
+    margin-bottom: 50%;
   }
   .new-game-modal {
     display: none;
