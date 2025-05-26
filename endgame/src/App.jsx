@@ -203,6 +203,33 @@ export default function AssemblyEndgame() {
           </button>
         )}
       </div>
+      <button
+        className="floating-new-game"
+        onClick={() => setShowNewGameModal(true)}
+        aria-label="Start a new game"
+      ></button>
+
+      {showNewGameModal && (
+        <div
+          className="new-game-modal"
+          onClick={() => setShowNewGameModal(false)}
+        >
+          <div
+            className="new-game-modal-content"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              className="new-game"
+              onClick={() => {
+                handleNewRandomWord();
+                setShowNewGameModal(false);
+              }}
+            >
+              New Game
+            </button>
+          </div>
+        </div>
+      )}
     </main>
   );
 }
