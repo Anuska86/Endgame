@@ -101,10 +101,9 @@ header > p {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
-
   justify-content: center;
   align-items: center;
-  margin: 20px auto 35px auto;
+  margin: 0.1em auto 0.1em auto;
   width: 100%;
   height: 120px;
   overflow: hidden;
@@ -369,7 +368,6 @@ button.new-game {
   }
   .languages {
     height: 250px;
-    margin: 24px auto 45px auto;
     padding: 1em 0.5em;
   }
 
@@ -400,6 +398,57 @@ button.new-game {
   .farewell {
     font-size: 1.2rem;
     padding: 4px 0;
+  }
+  button.new-game {
+    display: none;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 16px;
+    width: 225px;
+    margin: 0 auti;
+    z-index: 1000;
+    border-radius: 4px;
+    display: block;
+  }
+  .fab-new-game {
+    position: fixed;
+    right: 16px;
+    bottom: 16px;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: #11b5e5;
+    color: #fff;
+    font-size: 2rem;
+    border: none;
+    z-index: 1100;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+  .new-game-modal {
+    display: none;
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1200;
+    align-items: center;
+    justify-content: center;
+  }
+  .new-game-modal.active {
+    display: flex;
+  }
+  .new-game-modal-content {
+    background: #23243a;
+    padding: 24px 16px;
+    border-radius: 8px;
+    text-align: center;
   }
 }
 
@@ -434,7 +483,7 @@ button.new-game {
   }
 
   .languages {
-    margin: 0.5em;
+  
     height: 10em;
     font-size: 1rem;
     padding: 1em 0.5em;
@@ -473,7 +522,6 @@ button.new-game {
   .reveal-word {
     display: inline;
   }
-
   button.new-game {
     display: none;
     position: fixed;
@@ -505,7 +553,7 @@ button.new-game {
     cursor: pointer;
   }
   .new-game-modal {
-    display: none; /* Hidden by default */
+    display: none;
     position: fixed;
     left: 0;
     top: 0;
@@ -562,7 +610,7 @@ button.new-game {
   }
 
   .languages {
-    margin: 0.5em;
+    
     height: 13em;
     font-size: 1.2em;
     padding: 1em 0.5em;
@@ -609,65 +657,6 @@ button.new-game {
   .reveal-word {
     display: inline;
   }
-
-  @media (max-width: 400px) {
-    button.new-game {
-      display: none;
-      position: fixed;
-      left: 0;
-      right: 0;
-      bottom: 16px;
-      width: 225px;
-      margin: 0 auti;
-      z-index: 1000;
-      border-radius: 4px;
-      display: block;
-    }
-    .fab-new-game {
-      position: fixed;
-      right: 16px;
-      bottom: 16px;
-      width: 48px;
-      height: 48px;
-      border-radius: 50%;
-      background: #11b5e5;
-      color: #fff;
-      font-size: 2rem;
-      border: none;
-      z-index: 1100;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-    }
-    .new-game-modal {
-      display: none;
-      position: fixed;
-      left: 0;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      background: rgba(0, 0, 0, 0.5);
-      z-index: 1200;
-      align-items: center;
-      justify-content: center;
-    }
-    .new-game-modal.active {
-      display: flex;
-    }
-    .new-game-modal-content {
-      background: #23243a;
-      padding: 24px 16px;
-      border-radius: 8px;
-      text-align: center;
-    }
-  }
-}
-
-/* Floating button for SMALLER devices*/
-
-@media (max-width: 370px) {
   button.new-game {
     display: none;
     position: fixed;
@@ -680,7 +669,53 @@ button.new-game {
     border-radius: 4px;
     display: block;
   }
+  .fab-new-game {
+    position: fixed;
+    right: 16px;
+    bottom: 16px;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: #11b5e5;
+    color: #fff;
+    font-size: 2rem;
+    border: none;
+    z-index: 1100;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+  .new-game-modal {
+    display: none;
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1200;
+    align-items: center;
+    justify-content: center;
+  }
+  .new-game-modal.active {
+    display: flex;
+  }
+  .new-game-modal-content {
+    background: #23243a;
+    padding: 24px 16px;
+    border-radius: 8px;
+    text-align: center;
+  }
+}
 
+/* Floating button for SMALLER devices*/
+
+@media (max-width: 370px) {
+  button.new-game {
+    display: none;
+  }
   .fab-new-game {
     position: fixed;
     right: 16px;
