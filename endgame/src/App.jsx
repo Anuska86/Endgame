@@ -10,7 +10,7 @@ export default function AssemblyEndgame() {
   const [showNewGameModal, setShowNewGameModal] = React.useState(false);
 
   //Static values
-  const alphabet = "abcdefghijklmnopqrstuvwxyz";
+  const alphabet = "abcdefghijklmnopqrstuvwxyz"; //Blabla
 
   //Derived values
   const wrongGuessCount = chosenLetters.filter(
