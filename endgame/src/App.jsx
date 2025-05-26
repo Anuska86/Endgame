@@ -161,9 +161,6 @@ export default function AssemblyEndgame() {
             <>
               <h2>
                 You lose! 😢 Now Assembly is going to be your new best friend 😛{" "}
-                <span className="reveal-word">
-                  The word was: <strong>{currentWord}</strong>
-                </span>
               </h2>
             </>
           )}
@@ -173,12 +170,19 @@ export default function AssemblyEndgame() {
             </div>
           )}
         </section>
-        <section className={"floating-button-mobiles"}>
+        <section
+          className={clsx(
+            "floating-button-mobiles",
+            isGameOver && "show-on-end"
+          )}
+        >
           <button
             className="floating-new-game"
             onClick={() => setShowNewGameModal(true)}
             aria-label="Start a new game"
-          ></button>
+          >
+            New Game
+          </button>
 
           {showNewGameModal && (
             <div

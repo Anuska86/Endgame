@@ -279,6 +279,7 @@ button.new-game {
 }
 
 .floating-button-mobiles > button.floating-new-game {
+  display:none;
   position: absolute;
   margin-top: 50%;
   margin-bottom: 50%;
@@ -288,7 +289,6 @@ button.new-game {
   width: 225px;
   height: 40px;
   padding: 6px 12px;
-  display: block;
   margin-inline: auto;
   cursor: pointer;
   margin-top: 20px;
@@ -417,160 +417,146 @@ button.new-game {
     padding: 4px 0;
   }
 
-  button.new-game {
+  .floating-button-mobiles > button.floating-new-game {
     display: none;
-    position: fixed;
-    right: 16px;
-    bottom: 16px;
-    width: 48px;
-    height: 48px;
-    border-radius: 50%;
-    background: #11b5e5;
-    color: #fff;
-    font-size: 2rem;
-    border: none;
-    z-index: 1100;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
   }
-  .new-game-modal {
-    display: none;
-    position: fixed;
-    left: 0;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.5);
-    z-index: 1200;
-    align-items: center;
-    justify-content: center;
-  }
-  .new-game-modal.active {
-    display: flex;
-  }
-  .new-game-modal-content {
-    background: #23243a;
-    padding: 24px 16px;
-    border-radius: 8px;
-    text-align: center;
-  }
-}
-
-/* Responsive adjustments for mobile phones */
-@media (max-width: 500px) {
-  html {
-    font-size: 13px;
-  }
-  body {
-    padding: 1x;
-  }
-  .main-container {
-    max-width: 100vw;
-    padding: 0 1vw;
-  }
-
-  .game-status {
-    font-size: 1rem;
-    padding: 1em 0.5em;
-    margin: 4px 0;
-  }
-
-  .game-status > h2 {
-    text-align: center;
-    margin: 8px 0 5px 0;
-  }
-
-  .keyboard,
-  .remaining-guesses {
-    font-size: 1rem;
-    padding: 1em 0.5em;
-  }
-
-  .languages {
-    height: 10em;
-    font-size: 1rem;
-    padding: 1em 0.5em;
-  }
-
-  .language-container {
-    margin: 0.1em;
-    padding: 0.7em;
-    text-align: center;
-    min-height: 3em;
-    gap: 0.5em;
-  }
-
-  .keyboard > button,
-  .letter-span {
-    width: 2.2em;
-    height: 2.2em;
-    font-size: 1.1em;
-    padding: 0;
-  }
-
-  .farewell {
-    font-size: 1.1rem;
-    padding: 6px 0;
-  }
-  header > h1 {
-    font-size: 2.2rem;
-  }
-  header > p {
-    font-size: 1.3rem;
-  }
-  .word-display {
-    margin-bottom: 0.5rem;
-  }
-
-  .reveal-word {
-    display: inline;
-  }
-
-  button.new-game {
-    display: none;
-    right: 16px;
-    bottom: 16px;
-    width: 48px;
-    height: 48px;
-    border-radius: 50%;
-    background: #11b5e5;
-    color: #fff;
-    font-size: 2rem;
-    border: none;
-    z-index: 1100;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
+  .floating-button-mobiles.show-on-end > button.floating-new-game {
+    display: block;
     position: absolute;
-    margin-top: 50%;
-    margin-bottom: 50%;
-  }
-  .new-game-modal {
-    display: none;
-    position: fixed;
-    left: 0;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.5);
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 225px;
+    height: 40px;
+    border-radius: 4px;
+    background: #11b5e5;
+    color: #fff;
+    font-size: 1.1rem;
+    border: 1px solid #d7d7d7;
     z-index: 1200;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
     align-items: center;
     justify-content: center;
+    cursor: pointer;
+    margin: 0;
+    padding: 6px 12px;
   }
-  .new-game-modal.active {
-    display: flex;
-  }
-  .new-game-modal-content {
-    background: #23243a;
-    padding: 24px 16px;
-    border-radius: 8px;
-    text-align: center;
+  /* Responsive adjustments for mobile phones */
+  @media (max-width: 500px) {
+    html {
+      font-size: 13px;
+    }
+    body {
+      padding: 1x;
+    }
+    .main-container {
+      max-width: 100vw;
+      padding: 0 1vw;
+    }
+
+    .game-status {
+      font-size: 1rem;
+      padding: 1em 0.5em;
+      margin: 4px 0;
+    }
+
+    .game-status > h2 {
+      text-align: center;
+      margin: 8px 0 5px 0;
+    }
+
+    .keyboard,
+    .remaining-guesses {
+      font-size: 1rem;
+      padding: 1em 0.5em;
+    }
+
+    .languages {
+      height: 10em;
+      font-size: 1rem;
+      padding: 1em 0.5em;
+    }
+
+    .language-container {
+      margin: 0.1em;
+      padding: 0.7em;
+      text-align: center;
+      min-height: 3em;
+      gap: 0.5em;
+    }
+
+    .keyboard > button,
+    .letter-span {
+      width: 2.2em;
+      height: 2.2em;
+      font-size: 1.1em;
+      padding: 0;
+    }
+
+    .farewell {
+      font-size: 1.1rem;
+      padding: 6px 0;
+    }
+    header > h1 {
+      font-size: 2.2rem;
+    }
+    header > p {
+      font-size: 1.3rem;
+    }
+    .word-display {
+      margin-bottom: 0.5rem;
+    }
+
+    .reveal-word {
+      display: inline;
+    }
+
+    button.new-game {
+      display: none;
+      right: 16px;
+      bottom: 16px;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: #11b5e5;
+      color: #fff;
+      font-size: 2rem;
+      border: none;
+      z-index: 1100;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      position: absolute;
+      margin-top: 50%;
+      margin-bottom: 50%;
+    }
+    .floating-button-mobiles > button.floating-new-game {
+      display: none;
+    }
+    .floating-button-mobiles.show-on-end > button.floating-new-game {
+      display: block;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 225px;
+      height: 40px;
+      border-radius: 4px;
+      background: #11b5e5;
+      color: #fff;
+      font-size: 1.1rem;
+      border: 1px solid #d7d7d7;
+      z-index: 1200;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      margin: 0;
+      padding: 6px 12px;
+    }
   }
 }
-
 /* Responsive adjustments for SMALL mobile phones */
 @media (max-width: 400px) {
   html {
@@ -673,71 +659,58 @@ button.new-game {
     margin-top: 50%;
     margin-bottom: 50%;
   }
-  .new-game-modal {
-    display: none;
-    position: fixed;
-    left: 0;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.5);
-    z-index: 1200;
-    align-items: center;
-    justify-content: center;
-  }
-  .new-game-modal.active {
-    display: flex;
-  }
-  .new-game-modal-content {
-    background: #23243a;
-    padding: 24px 16px;
-    border-radius: 8px;
-    text-align: center;
-  }
-}
 
-/* Floating button for SMALLER devices*/
-
-@media (max-width: 370px) {
-  button.new-game {
+  .floating-button-mobiles > button.floating-new-game {
     display: none;
-    right: 16px;
-    bottom: 16px;
-    width: 48px;
-    height: 48px;
-    border-radius: 50%;
+  }
+  .floating-button-mobiles.show-on-end > button.floating-new-game {
+    display: block;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 225px;
+    height: 40px;
+    border-radius: 4px;
     background: #11b5e5;
     color: #fff;
-    font-size: 2rem;
-    border: none;
-    z-index: 1100;
+    font-size: 1.1rem;
+    border: 1px solid #d7d7d7;
+    z-index: 1200;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    position: absolute;
-    margin-top: 50%;
-    margin-bottom: 50%;
+    margin: 0;
+    padding: 6px 12px;
   }
-  .new-game-modal {
-    display: none;
-    position: fixed;
-    left: 0;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.5);
-    z-index: 1200;
-    align-items: center;
-    justify-content: center;
-  }
-  .new-game-modal.active {
-    display: flex;
-  }
-  .new-game-modal-content {
-    background: #23243a;
-    padding: 24px 16px;
-    border-radius: 8px;
-    text-align: center;
+
+  /* Floating button for SMALLER devices*/
+
+  @media (max-width: 370px) {
+    .floating-button-mobiles > button.floating-new-game {
+      display: none;
+    }
+    .floating-button-mobiles.show-on-end > button.floating-new-game {
+      display: block;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 225px;
+      height: 40px;
+      border-radius: 4px;
+      background: #11b5e5;
+      color: #fff;
+      font-size: 1.1rem;
+      border: 1px solid #d7d7d7;
+      z-index: 1200;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      margin: 0;
+      padding: 6px 12px;
+    }
   }
 }
