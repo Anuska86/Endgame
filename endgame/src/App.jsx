@@ -10,7 +10,7 @@ export default function AssemblyEndgame() {
   const [showNewGameModal, setShowNewGameModal] = React.useState(false);
 
   //Static values
-  const alphabet = "abcdefghijklmnopqrstuvwxyz"; //Blabla
+  const alphabet = "abcdefghijklmnopqrstuvwxyz";
 
   //Derived values
   const wrongGuessCount = chosenLetters.filter(
@@ -147,7 +147,7 @@ export default function AssemblyEndgame() {
         </header>
         <section className="remaining-guesses">
           <strong>
-            Remaining guesses: {numberOfGuesses - wrongGuessCount} :O
+            Remaining guesses: {numberOfGuesses - wrongGuessCount}
           </strong>
         </section>
         <section aria-live="polite" role="status" className={gameStatusClass}>
