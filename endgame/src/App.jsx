@@ -180,7 +180,7 @@ export default function AssemblyEndgame() {
         >
           <button
             className="floating-new-game"
-            onClick={() => setShowNewGameModal(true)}
+            onClick={() => handleNewRandomWord(true)}
             aria-label="Start a new game"
           >
             New Game
