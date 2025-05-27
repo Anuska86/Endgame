@@ -140,9 +140,9 @@ export default function AssemblyEndgame() {
         <header>
           <h1>Assembly: Endgame</h1>
           <p className="instructions">
-            Guess the word in under 8 attempts to keep the programming world
-            safe from Assembly! For every wrong letter, a programming language
-            will be sacrificed!😱{" "}
+            You have 8 attempts to guess the hidden word. For each letter
+            missed, a programming language will be sacrificed until only
+            Assembly remains. Please help us!😱{" "}
           </p>
         </header>
         <section className="remaining-guesses">
@@ -170,6 +170,8 @@ export default function AssemblyEndgame() {
             </div>
           )}
         </section>
+
+        <section className="languages">{languageElements}</section>
         <section
           className={clsx(
             "floating-button-mobiles",
@@ -206,7 +208,6 @@ export default function AssemblyEndgame() {
             </div>
           )}
         </section>
-        <section className="languages">{languageElements}</section>
         <section className="word-display">{letterSpans}</section>
 
         {/* Reader-only mode: No interactive elements here */}
