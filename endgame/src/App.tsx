@@ -1,12 +1,14 @@
-import React from "react";
+import { useState } from "react";
 import { clsx } from "clsx";
 import Confetti from "react-confetti";
 import { languages } from "./languages";
 import { getFarewellText, getRandomWord } from "./utils";
 
 export default function AssemblyEndgame() {
-  const [currentWord, setCurrentWord] = React.useState(() => getRandomWord());
-  const [chosenLetters, setChosenLetters] = React.useState([]);
+  const [currentWord, setCurrentWord] = useState<string>((): string =>
+    getRandomWord(),
+  );
+  const [chosenLetters, setChosenLetters] = useState<string[]>([]);
 
   //Static values
   const alphabet = "abcdefghijklmnopqrstuvwxyz";
