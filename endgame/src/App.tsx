@@ -52,6 +52,7 @@ export default function AssemblyEndgame() {
     <main>
       <div className="main-container">
         <ConfettiContainer isGameWon={isGameWon} />
+        <Header />
         <GameStatus
           isGameWon={isGameWon}
           isGameLost={isGameLost}
