@@ -7,14 +7,13 @@ import { getFarewellText, getRandomWord } from "./utils";
 export default function AssemblyEndgame() {
   const [currentWord, setCurrentWord] = React.useState(() => getRandomWord());
   const [chosenLetters, setChosenLetters] = React.useState([]);
-  const [showNewGameModal, setShowNewGameModal] = React.useState(false);
 
   //Static values
   const alphabet = "abcdefghijklmnopqrstuvwxyz";
 
   //Derived values
   const wrongGuessCount = chosenLetters.filter(
-    (letter) => !currentWord.includes(letter)
+    (letter) => !currentWord.includes(letter),
   ).length;
   const numberOfGuesses = languages.length - 1;
   const isGameWon = currentWord
@@ -51,7 +50,7 @@ export default function AssemblyEndgame() {
     };
     const className = clsx(
       "language-container",
-      isLanguageLost && "language-container--lost"
+      isLanguageLost && "language-container--lost",
     );
     return (
       <div className={className} key={language.name} style={styles}>
@@ -68,7 +67,7 @@ export default function AssemblyEndgame() {
     const isRevealed = chosenLetters.includes(letter) || isGameLost;
     const letterClassName = clsx(
       "letter-span",
-      !chosenLetters.includes(letter) && isGameLost && "letter-span--missing"
+      !chosenLetters.includes(letter) && isGameLost && "letter-span--missing",
     );
     return (
       <span key={index} className={letterClassName}>
@@ -123,7 +122,7 @@ export default function AssemblyEndgame() {
   const gameStatusClass = clsx(
     "game-status",
     isGameWon && "game-status--won",
-    isGameLost && "game-status--lost"
+    isGameLost && "game-status--lost",
   );
 
   return (
@@ -160,7 +159,8 @@ export default function AssemblyEndgame() {
           {isGameLost && (
             <>
               <h2>
-                You lose! 😢 Now Assembly is going to be your new best friend 😛{" "}
+                You lose! 😢 Now Assembly is going to be your new best friend
+                😛{" "}
               </h2>
             </>
           )}
@@ -172,42 +172,7 @@ export default function AssemblyEndgame() {
         </section>
 
         <section className="languages">{languageElements}</section>
-        <section
-          className={clsx(
-            "floating-button-mobiles",
-            isGameOver && "show-on-end"
-          )}
-        >
-          <button
-            className="floating-new-game"
-            onClick={() => setShowNewGameModal(true)}
-            aria-label="Start a new game"
-          >
-            New Game
-          </button>
 
-          {showNewGameModal && (
-            <div
-              className="new-game-modal"
-              onClick={() => setShowNewGameModal(false)}
-            >
-              <div
-                className="new-game-modal-content"
-                onClick={(e) => e.stopPropagation()}
-              >
-                <button
-                  className="new-game"
-                  onClick={() => {
-                    handleNewRandomWord();
-                    setShowNewGameModal(false);
-                  }}
-                >
-                  New Game
-                </button>
-              </div>
-            </div>
-          )}
-        </section>
         <section className="word-display">{letterSpans}</section>
 
         {/* Reader-only mode: No interactive elements here */}
@@ -216,7 +181,7 @@ export default function AssemblyEndgame() {
             {currentWord.includes(
               lastChosenLetter
                 ? `Correct! The letter ${lastChosenLetter} is in the word!`
-                : `Wrong! The letter ${lastChosenLetter} is not in the word!`
+                : `Wrong! The letter ${lastChosenLetter} is not in the word!`,
             )}
             You have {numberOfGuesses}guesses left.
           </p>
@@ -225,16 +190,19 @@ export default function AssemblyEndgame() {
             {currentWord
               .split("")
               .map((letter) =>
-                chosenLetters.includes(letter) ? letter + "." : "blank"
+                chosenLetters.includes(letter) ? letter + "." : "blank",
               )
               .join(" ")}
           </p>
         </section>
         <section className="keyboard">{keyboard}</section>
+
         {isGameOver && (
-          <button className="new-game" onClick={handleNewRandomWord}>
-            New Game
-          </button>
+          <div className="game-over-overlay">
+            <button className="new-game" onClick={handleNewRandomWord}>
+              New Game
+            </button>
+          </div>
         )}
       </div>
     </main>
