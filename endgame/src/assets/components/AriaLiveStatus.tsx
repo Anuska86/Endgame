@@ -3,7 +3,7 @@ export default function AriaLiveStatus({
   lastChosenLetter,
   chosenLetters,
   numberOfGuesses,
-}) {
+}: any) {
   return (
     <section className="sr-only" aria-live="polite" role="status">
       <p>
