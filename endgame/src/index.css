@@ -130,12 +130,29 @@ header > p {
   background-color: rgba(0, 0, 0, 0.4);
   backdrop-filter: blur(2px);
   z-index: 2000;
-  animation: fade-in 0.4s ease-out;
+  animation: fade-and-pop 0.5s ease-out 2s forwards;
   font-size: 1.25rem;
   font-weight: bold;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
   transform: scale(1);
   transition: transform 0.2s;
+  opacity: 0;
+  pointer-events: none;
+}
+
+@keyframes fade-and-pop {
+  0% {
+    opacity: 0;
+    backdrop-filter: blur(0px);
+    transform: scale(0.9);
+    pointer-events: none;
+  }
+  100% {
+    opacity: 1;
+    backdrop-filter: blur(2px);
+    transform: scale(1);
+    pointer-events: auto;
+  }
 }
 
 .new-game {
