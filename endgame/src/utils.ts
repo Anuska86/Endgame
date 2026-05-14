@@ -1,7 +1,7 @@
 import { words } from "./words";
 
 export function getRandomIndex(array: string[]): number {
-  return Math.floor(Math.random() * words.length);
+  return Math.floor(Math.random() * array.length);
 }
 
 export function getRandomWord(): string {
@@ -23,6 +23,5 @@ export function getFarewellText(language: string): string {
     `${language} has left the building!`,
   ];
 
-  const randomIndex: number = Math.floor(Math.random() * options.length);
-  return options[randomIndex];
+  return options[getRandomIndex(options)];
 }
