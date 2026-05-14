@@ -14,18 +14,18 @@ export default function AssemblyEndgame() {
   const alphabet = "abcdefghijklmnopqrstuvwxyz";
 
   //Derived values
-  const wrongGuessCount = chosenLetters.filter(
-    (letter) => !currentWord.includes(letter),
+  const wrongGuessCount: number = chosenLetters.filter(
+    (letter: string) => !currentWord.includes(letter),
   ).length;
-  const numberOfGuesses = languages.length - 1;
-  const isGameWon = currentWord
+  const numberOfGuesses: number = languages.length - 1;
+  const isGameWon: boolean = currentWord
     .split("")
-    .every((letter) => chosenLetters.includes(letter));
-  const isGameLost = wrongGuessCount >= languages.length - 1;
-  const isGameOver = isGameWon || isGameLost;
+    .every((letter: string) => chosenLetters.includes(letter));
+  const isGameLost: boolean = wrongGuessCount >= languages.length - 1;
+  const isGameOver: boolean = isGameWon || isGameLost;
 
-  const lastChosenLetter = chosenLetters[chosenLetters.length - 1];
-  const lastGuessWasWrong =
+  const lastChosenLetter: string = chosenLetters[chosenLetters.length - 1];
+  const lastGuessWasWrong: boolean | "" =
     lastChosenLetter && !currentWord.includes(lastChosenLetter);
 
   //Get the farewells for the languages that have been lost
@@ -78,17 +78,17 @@ export default function AssemblyEndgame() {
     );
   });
   //Handle the click event for the keyboard buttons
-  const handleLetterClick = (letter) => {
+  function handleLetterClick(letter: string): void {
     if (!chosenLetters.includes(letter)) {
-      setChosenLetters((prev) => [...prev, letter]);
+      setChosenLetters((prev: string[]): string[] => [...prev, letter]);
     }
-  };
+  }
 
   //Handle the click event for the new random word button
-  const handleNewRandomWord = () => {
+  function handleNewRandomWord(): void {
     setCurrentWord(getRandomWord());
     setChosenLetters([]);
-  };
+  }
 
   const keyboard = (
     <div className={`keyboard${isGameLost ? " keyboard--stone" : ""}`}>
