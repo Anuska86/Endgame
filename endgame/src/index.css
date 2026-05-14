@@ -1,16 +1,10 @@
+/*BASE*/
+
 * {
   box-sizing: border-box;
 }
 
-.main-container {
-  max-width: 500px;
-  margin: 0 auto;
-  min-height: 90vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-}
+/*Body*/
 
 body {
   margin: 0;
@@ -22,6 +16,8 @@ body {
   display: flex;
   justify-content: center;
 }
+
+/*Header*/
 
 header {
   text-align: center;
@@ -38,6 +34,20 @@ header > p {
   color: #b6b3b3;
 }
 
+/*Main Container*/
+
+.main-container {
+  max-width: 500px;
+  margin: 0 auto;
+  min-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+/*Instructions*/
+
 .instructions {
   display: flex;
   justify-content: center;
@@ -48,6 +58,8 @@ header > p {
   margin-bottom: 0.5em;
   font-size: 1.5rem;
 }
+
+/*Game-status*/
 
 .game-status {
   display: flex;
@@ -96,6 +108,8 @@ header > p {
   margin: 4px 3px 5px 5px;
 }
 
+/*Languages*/
+
 .languages {
   display: flex;
   flex-wrap: wrap;
@@ -138,6 +152,8 @@ header > p {
   z-index: 1;
 }
 
+/*Farewell*/
+
 .farewell {
   display: flex;
   justify-content: center;
@@ -153,6 +169,8 @@ header > p {
   border-radius: 8px;
   border: 1px dashed #323232;
 }
+
+/*Letter-span*/
 
 .letter-span {
   display: flex;
@@ -172,6 +190,8 @@ header > p {
   border-radius: 4px;
   font-weight: bold;
 }
+
+/*Word-display*/
 
 .word-display {
   display: flex;
@@ -203,6 +223,8 @@ header > p {
   box-sizing: border-box;
 }
 
+/*Remaining-guesses*/
+
 .remaining-guesses {
   display: flex;
   justify-content: center;
@@ -219,6 +241,8 @@ header > p {
   border: 2px solid #fcba29;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
+
+/*Keyboard*/
 
 .keyboard {
   display: flex;
@@ -264,6 +288,8 @@ header > p {
   opacity: 0.5;
 }
 
+/*BUTTONS*/
+
 button.new-game {
   background-color: #11b5e5;
   border: 1px solid #d7d7d7;
@@ -293,6 +319,8 @@ button.new-game {
   margin-top: 20px;
 }
 
+/*SR-ONLY*/
+
 .sr-only {
   position: absolute;
   width: 1px;
@@ -308,7 +336,8 @@ button.new-game {
 .keyboard--stone > button {
   position: relative;
   background:
-    /* Large, rough spots */ repeating-radial-gradient(
+    /* Large, rough spots */
+    repeating-radial-gradient(
       circle at 20% 30%,
       #a0a0a0 0px,
       #b0b0b0 8px,
@@ -321,7 +350,7 @@ button.new-game {
       transparent 16px
     ),
     /* Diagonal streaks */
-      repeating-linear-gradient(
+    repeating-linear-gradient(
         120deg,
         #b0b0b0 0px,
         #b0b0b0 6px,
@@ -338,9 +367,12 @@ button.new-game {
     /* Base stone gradient */ linear-gradient(120deg, #d1d1d1 0%, #888 100%);
   color: #222;
   border: 1.5px solid #888;
-  box-shadow: 0 3px 12px #888 inset, 0 1px 2px #222;
+  box-shadow:
+    0 3px 12px #888 inset,
+    0 1px 2px #222;
   filter: grayscale(1) contrast(1.7) brightness(0.7);
-  transition: background 0.6s cubic-bezier(0.4, 2, 0.6, 1),
+  transition:
+    background 0.6s cubic-bezier(0.4, 2, 0.6, 1),
     color 0.6s cubic-bezier(0.4, 2, 0.6, 1),
     filter 0.6s cubic-bezier(0.4, 2, 0.6, 1);
   overflow: hidden;
@@ -353,7 +385,8 @@ button.new-game {
   pointer-events: none;
   border-radius: 3px;
   opacity: 0.28;
-  background: repeating-linear-gradient(
+  background:
+    repeating-linear-gradient(
       0deg,
       transparent,
       rgba(0, 0, 0, 0.09) 1px,
@@ -579,14 +612,17 @@ button.floating-new-game {
     letter-spacing: 0.04em;
     border: none;
     z-index: 1200;
-    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.22),
+    box-shadow:
+      0 4px 24px rgba(0, 0, 0, 0.22),
       0 1.5px 4px rgba(17, 181, 229, 0.18);
     align-items: center;
     justify-content: center;
     cursor: pointer;
     margin: 0;
     padding: 1vw 2vw;
-    transition: transform 0.18s cubic-bezier(0.4, 2, 0.6, 1), box-shadow 0.18s;
+    transition:
+      transform 0.18s cubic-bezier(0.4, 2, 0.6, 1),
+      box-shadow 0.18s;
     animation: pop-in 0.5s cubic-bezier(0.4, 2, 0.6, 1);
     border: 1px solid #d7d7d7;
   }
@@ -594,7 +630,8 @@ button.floating-new-game {
   .floating-button-mobiles.show-on-end > button.floating-new-game:hover,
   .floating-button-mobiles.show-on-end > button.floating-new-game:focus {
     transform: translate(-50%, -50%) scale(1.07);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.28),
+    box-shadow:
+      0 8px 32px rgba(0, 0, 0, 0.28),
       0 2px 8px rgba(17, 181, 229, 0.22);
     outline: none;
   }
